@@ -4,24 +4,24 @@ This is my first attempt to work within reactive stack. I used SpringWebFlux + M
 ## How to run it
 First install docker.
 
-###Run:
+### Run:
 
-####Pull images
+#### Pull images
 docker pull chocolazerboom/assessment:app
 
 docker pull chocolazerboom/assessment:mongo
 
 Oh shit, I always mix up assignment and assessment :(
 
-####Create network
+#### Create network
 docker network create -d bridge backend
 
-####Run containers
-####(CAPPED=true means that streaming is allowed, but doc/collection sizes cannot be changed)
+#### Run containers
+#### (CAPPED=true means that streaming is allowed, but doc/collection sizes cannot be changed)
 docker run -dp 27017:27017 --env CAPPED=false --name mongo --net backend mongo
 docker run -dp 8000:8080 --name app --net backend --link mongo:mongo app
 
-###Endpoints
+### Endpoints
 
 GET /building/all - get all data
 
@@ -41,6 +41,6 @@ Don't use it in capped mode, or be sure that your changes don't affect document'
 
 GET /building/all/stream - this guy is for streaming, do not forget to have capped collection to use it
 
-###Tests
+### Tests
 There is only one integration test that I added just as an example, because I was already exhausted.
 I missed security because of the same reason (I was supposed to add JWT here) :(
