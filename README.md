@@ -41,6 +41,17 @@ Don't use it in capped mode, or be sure that your changes don't affect document'
 
 GET /building/all/stream - this guy is for streaming, do not forget to have capped collection to use it
 
+### Input/Output data format
+{
+"name": "building",
+"street": "Mayakovskaya",
+"number": "10",
+"postalCode": "197372",
+"city": "Saint-Petersburg",
+"country": "Russia",
+"description": "Cool old building"
+}
+
 ### Tests
 There is only one integration test that I added just as an example, because I was already exhausted.
 I missed security because of the same reason (I was supposed to add JWT here) :(
